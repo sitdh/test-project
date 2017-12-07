@@ -24,6 +24,16 @@ return [
                     ],
                 ],
             ],
+            'test' => [
+                'type' => Literal::class,
+                'options' => [
+                    'route'    => '/',
+                    'defaults' => [
+                        'controller' => Controller\TestController::class,
+                        'action'     => 'index',
+                    ],
+                ],
+            ],
             'application' => [
                 'type'    => Segment::class,
                 'options' => [
