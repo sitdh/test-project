@@ -16,28 +16,10 @@ class EquationSolver
 
   private $variableSide;
 
-  public function __construct(string $equation, string $variable)
+  public function solve(string $equation, string $variable) : string
   {
-    $this->equation = $equation;
-    $this->dataSet = [
-      'left'        => '',
-      'right'       => '',
-      'variable'    => '',
-      'var_side'    => '',
-      'original_eq' => '',
-    ];
 
-    $this->dataSet['original_eq'] = $equation;
-
-    list($this->dataSet['left'], $this->dataSet['right']) = explode('=', strtolower(str_replace(' ', '', $equation)));
-    $this->dataSet['variable'] = strtolower($variable);
-
-    $this->variableSide = (stripos($variable, $this->dataSet['left']) >= 0) ? 'left' : 'right';
-    $this->dataSet['var_side'] = $this->variableSide;
-  }
-
-  public function solve() : string
-  {
+    $this->prepare($equation, $variable);
 
     $processEquation = $this->{$this->var_side};
 
@@ -106,4 +88,25 @@ class EquationSolver
   {
     return ('left' == $currentSide) ? 'right' : 'left' ;
   }
+
+  private function prepare(string $equation, string $variable)
+  {
+    $this->equation = $equation;
+    $this->dataSet = [
+      'left'        => '',
+      'right'       => '',
+      'variable'    => '',
+      'var_side'    => '',
+      'original_eq' => '',
+    ];
+
+    $this->dataSet['original_eq'] = $equation;
+
+    list($this->dataSet['left'], $this->dataSet['right']) = explode('=', strtolower(str_replace(' ', '', $equation)));
+    $this->dataSet['variable'] = strtolower($variable);
+
+    $this->variableSide = (stripos($variable, $this->dataSet['left']) >= 0) ? 'left' : 'right';
+    $this->dataSet['var_side'] = $this->variableSide;
+  }
+
 }

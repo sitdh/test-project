@@ -5,7 +5,7 @@ namespace Application\Sequence;
 class SequenceGenerator
 {
 
-  public static function element(array $msg) : int
+  public function element(array $msg) : int
   {
     $i = 1;
     foreach($msg as $e)
