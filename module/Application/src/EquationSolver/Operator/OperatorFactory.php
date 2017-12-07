@@ -20,7 +20,6 @@ class OperatorFactory
       return new Application\EquationSolver\Exception\UnsupportedOperatorException(
         'Unsupport operator', 404);
     }
-
     return $op;
   }
 }
