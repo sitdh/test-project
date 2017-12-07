@@ -4,5 +4,5 @@ namespace Application\EquationSolver\Operator;
 
 interface OperatorInterface 
 {
-  public function calculate($leftOperand, $rightOperand);
+  public function calculate($leftOperand, $rightOperand) : int;
 }

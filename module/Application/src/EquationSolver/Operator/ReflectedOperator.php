@@ -4,30 +4,31 @@ namespace Application\EquationSolver\Operator;
 
 class ReflectedOperator 
 {
-  public static function reflected($op) 
+  const PLUS_SYMBOL     = '+';
+  const MINUS_SYMBOL    = '-';
+  const MULTIPLY_SYMBOL = 'x';
+  const DEVIDE_SYMBOL   = '/';
+
+  public static function reflect($op) 
   {
-    const PLUS_SYMBOL     = '+';
-    const MINUS_SYMBOL    = '-';
-    const MULTIPLY_SYMBOL = 'x';
-    const DEVIDE_SYMBOL   = '/';
 
     $reflectedOp = '';
 
-    if (PLUS_SYMBOL == $op) 
+    if (ReflectedOperator::PLUS_SYMBOL == $op) 
     {
-      $reflectedOp = '-';
+      $reflectedOp = ReflectedOperator::MINUS_SYMBOL;
     } 
-    elseif (MINUS_SYMBOL == $op) 
+    elseif (ReflectedOperator::MINUS_SYMBOL == $op) 
     {
-      $reflectedOp = '+';
+      $reflectedOp = ReflectedOperator::PLUS_SYMBOL;
     }
-    elseif (MULTIPLY_SYMBOL == $op) 
+    elseif (ReflectedOperator::MULTIPLY_SYMBOL == $op) 
     {
-      $reflectedOp = '/';
+      $reflectedOp = ReflectedOperator::DEVIDE_SYMBOL;
     }
-    elseif (DEVIDE_SYMBOL == $op) 
+    elseif (ReflectedOperator::DEVIDE_SYMBOL == $op) 
     {
-      $reflectedOp = 'x';
+      $reflectedOp = ReflectedOperator::MULTIPLY_SYMBOL;
     }
     else
     {
