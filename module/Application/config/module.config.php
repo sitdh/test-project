@@ -27,7 +27,7 @@ return [
             'test' => [
                 'type' => Literal::class,
                 'options' => [
-                    'route'    => '/',
+                    'route'    => '/test',
                     'defaults' => [
                         'controller' => Controller\TestController::class,
                         'action'     => 'index',
