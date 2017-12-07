@@ -9,13 +9,13 @@ class OperatorFactory
   {
     $op = null;
 
-    if (stripos($exp, '+') >= 0) {
+    if (stripos($exp, '+') !== FALSE) {
       $op = new PlusOperator;
-    } elseif (stripos($exp, '-') >= 0) {
+    } elseif (stripos($exp, '-') !== FALSE) {
       $op = new MinusOperator;
-    } elseif (stripos($exp, 'x') >= 0) {
+    } elseif (stripos($exp, 'x') !== FALSE) {
       $op = new MultiplyOperator;
-    } elseif (stripos($exp, '/') >= 0) {
+    } elseif (stripos($exp, '/') !== FALSE) {
       $op = new DevideOperator;
     } else {
       return new UnsupportedOperatorException('Unsupport operator', 404);
