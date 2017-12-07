@@ -49,6 +49,7 @@ return [
     'controllers' => [
         'factories' => [
             Controller\IndexController::class => InvokableFactory::class,
+            Controller\TestController::class => InvokableFactory::class,
         ],
     ],
     'view_manager' => [
