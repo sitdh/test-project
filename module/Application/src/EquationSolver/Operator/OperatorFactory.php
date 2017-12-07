@@ -4,17 +4,17 @@ namespace Application\EquationSolver\Operator;
 
 class OperatorFactory 
 {
-  public function factory($operator)
+  public static function factory($exp) : OperatorInterface
   {
     $op = null;
 
-    if (0 == strcmp('+', $operator)) {
+    if (stripos('+', $operator) > 0) {
       $op = new PlusOperator;
-    } elseif (0 == strcmp('-', $operator)) {
+    } elseif (stripos('-', $operator) > 0) {
       $op = new MinusOperator;
-    } elseif (0 == strcmp('x', $operator)) {
+    } elseif (stripos('x', $operator) > 0) {
       $op = new MultiplyOperator;
-    } elseif (0 == strcmp('/', $operator)) {
+    } elseif (stripos('/', $operator) > 0) {
       $op = new DevideOperator;
     } else {
       return new Application\EquationSolver\Exception\UnsupportedOperatorException(
